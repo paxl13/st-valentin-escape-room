@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PuzzleShell from '../PuzzleShell/PuzzleShell';
 import { validatePuzzle2 } from '../../utils/puzzleValidation';
 import styles from './Puzzle2Series.module.css';
@@ -7,44 +8,47 @@ interface Props {
   onSolve: () => void;
 }
 
+const HINTS = [
+  "C'est relié à un nombre irrationnel très célèbre.",
+  "Cherche juste la partie après la virgule.",
+  "Les signes alternent entre + et −.",
+  "0.1415926...",
+];
+
 const OPTIONS = [
   {
     id: 'A',
-    formula: '1 + 1/2 + 1/3 + 1/4 + ...',
-    name: 'Série harmonique',
-    convergesTo: '→ ∞ (diverge)',
+    formula: '1/10 + 1/100 + 1/1000 + 1/10000 + 1/100000 + ...',
   },
   {
     id: 'B',
-    formula: '1 - 1/3 + 1/5 - 1/7 + ...',
-    name: 'Série de Leibniz',
-    convergesTo: '→ π/4',
+    formula: '1/6 − 1/30 + 1/84 − 1/180 + 1/330 − 1/546 + ...',
   },
   {
     id: 'C',
-    formula: '1 + 1/4 + 1/9 + 1/16 + ...',
-    name: 'Problème de Bâle',
-    convergesTo: '→ π²/6',
+    formula: '1/4 − 1/8 + 1/12 − 1/16 + 1/20 − 1/24 + ...',
   },
   {
     id: 'D',
-    formula: '1 + 1/2 + 1/4 + 1/8 + ...',
-    name: 'Série géométrique',
-    convergesTo: '→ 2',
+    formula: '1/6 + 1/36 + 1/216 + 1/1296 + 1/7776 + ...',
   },
 ];
 
 export default function Puzzle2Series({ onSolve }: Props) {
   const [error, setError] = useState('');
   const [wrongId, setWrongId] = useState('');
-  const [showHint, setShowHint] = useState(false);
+  const [visibleHints, setVisibleHints] = useState(0);
+
+  const showMoreHints = useCallback(() => {
+    setVisibleHints((prev) => Math.min(prev + 1, HINTS.length));
+  }, []);
 
   const handleSelect = (optionId: string) => {
     if (validatePuzzle2(optionId)) {
       onSolve();
     } else {
       setWrongId(optionId);
-      setError('Cette série ne converge pas vers π/4...');
+      setError('Ce n\'est pas la bonne réponse...');
       setTimeout(() => setWrongId(''), 400);
     }
   };
@@ -57,12 +61,31 @@ export default function Puzzle2Series({ onSolve }: Props) {
       error={error}
     >
       <p className={styles.question}>
-        Parmi ces séries infinies, laquelle converge vers un <strong>multiple de π</strong> ?
+        Parmi ces séries infinies, laquelle converge vers les <strong>décimales de π</strong> ?
       </p>
 
-      <button className={styles.hint} onClick={() => setShowHint(true)}>
-        {showHint ? 'π/4' : 'Touche ici pour un indice'}
-      </button>
+      <div className={styles.hints}>
+        <AnimatePresence>
+          {HINTS.slice(0, visibleHints).map((hint, i) => (
+            <motion.div
+              key={i}
+              className={styles.hintItem}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className={styles.hintNumber}>Indice {i + 1}</span>
+              {hint}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {visibleHints < HINTS.length && (
+        <button className={styles.moreBtn} onClick={showMoreHints}>
+          Révéler un indice ({visibleHints}/{HINTS.length})
+        </button>
+      )}
 
       <div className={styles.options}>
         {OPTIONS.map((opt) => (

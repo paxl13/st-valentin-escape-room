@@ -1,5 +1,6 @@
-export function validatePuzzle1(code: string): boolean {
-  return code === '15032005';
+export function validatePuzzle1(answer: string): boolean {
+  const normalized = answer.trim().replace(/\s+/g, '');
+  return normalized === '742560';
 }
 
 export function validatePuzzle2(selectedOption: string): boolean {
@@ -8,7 +9,7 @@ export function validatePuzzle2(selectedOption: string): boolean {
 
 export function validatePuzzle3(answer: string): boolean {
   const normalized = answer.trim().toLowerCase().replace(/\s+/g, ' ');
-  return normalized === 'contra 3';
+  return normalized.split(' ')[0] === 'contra';
 }
 
 export function validatePuzzle4(answer: string): boolean {

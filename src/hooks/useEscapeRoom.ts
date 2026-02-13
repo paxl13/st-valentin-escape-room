@@ -13,6 +13,7 @@ function escapeRoomReducer(state: EscapeRoomState, action: EscapeRoomAction): Es
     case 'START_GAME':
       return { ...state, currentPuzzle: 1 };
     case 'SOLVE_PUZZLE':
+      if (state.solvedPuzzles.includes(action.puzzleId)) return state;
       return {
         ...state,
         solvedPuzzles: [...state.solvedPuzzles, action.puzzleId],

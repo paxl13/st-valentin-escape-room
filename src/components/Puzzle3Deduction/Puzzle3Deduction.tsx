@@ -9,11 +9,11 @@ interface Props {
 }
 
 const HINTS = [
-  "C'est un jeu vidéo classique de la fin des années 80.",
-  "C'est un jeu de type run and gun sur console.",
-  "Le jeu se joue à deux joueurs coopérativement et est célèbre pour sa difficulté.",
-  "C'est le troisième opus d'une série culte de Konami sur Super Nintendo.",
-  "Le titre complet contient un chiffre. Pense à Contra...",
+  "Parfaite activité de première date.",
+  "↑ ↑ ↓ ↓ ← → ← → B A",
+  "Trop dure pour les filles selon moi de l'epoque",
+  "Un run and gun légendaire sur Super Nintendo.",
+  "Le troisième opus d'une série culte de Konami.",
 ];
 
 export default function Puzzle3Deduction({ onSolve }: Props) {
