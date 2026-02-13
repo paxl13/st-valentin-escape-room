@@ -1,0 +1,105 @@
+.question {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.formula {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--accent-rose-light);
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(26, 10, 16, 0.6);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(232, 67, 147, 0.15);
+  line-height: 1.8;
+}
+
+.hint {
+  display: block;
+  margin: 0 auto 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.hint:hover {
+  color: var(--accent-rose-light);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.optionCard {
+  padding: 1rem;
+  background: rgba(26, 10, 16, 0.5);
+  border: 2px solid var(--border-rose);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.optionCard:hover {
+  border-color: var(--accent-rose-light);
+  background: rgba(232, 67, 147, 0.1);
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.15);
+}
+
+.optionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-rose-dim);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.optionText {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.optionConverge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.selected {
+  border-color: var(--accent-rose);
+  background: rgba(232, 67, 147, 0.15);
+  box-shadow: var(--shadow-glow);
+}
+
+.wrong {
+  border-color: #ff6b6b;
+  animation: shakeOption 0.4s ease;
+}
+
+@keyframes shakeOption {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@media (max-width: 480px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .formula {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,98 @@
+.app {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mainTitle {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.mainSubtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 60vh;
+  text-align: center;
+  max-width: 500px;
+}
+
+.introIcon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.introTitle {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.introDesc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.startBtn {
+  padding: 1rem 3rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-rose-dim), var(--accent-rose));
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.05em;
+}
+
+.startBtn:hover {
+  box-shadow: var(--shadow-glow-strong);
+  transform: translateY(-2px);
+}
+
+.puzzleArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .introTitle {
+    font-size: 1.8rem;
+  }
+
+  .mainTitle {
+    font-size: 1.6rem;
+  }
+}

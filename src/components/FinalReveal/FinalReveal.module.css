@@ -1,0 +1,223 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+.passwordSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.password {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-gold), #fff5c0, var(--accent-gold-dim));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.passwordInput {
+  width: 100%;
+  padding: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--text-primary);
+  background: rgba(26, 10, 16, 0.8);
+  border: 2px solid var(--border-rose);
+  border-radius: var(--radius-md);
+  caret-color: var(--accent-gold);
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+}
+
+.passwordInput:focus {
+  border-color: var(--accent-gold-dim);
+  box-shadow: var(--shadow-gold);
+}
+
+.passwordInput::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.unlockBtn {
+  padding: 0.85rem 3rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--accent-gold), #fff5c0);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.05em;
+}
+
+.unlockBtn:hover:not(:disabled) {
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.unlockBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.wordsHint {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wordChip {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--accent-gold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wordChip:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.wordChipSelected {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.wordOrder {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-gold);
+  color: var(--bg-deep);
+  border-radius: 50%;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.passwordPreview {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  background: rgba(26, 10, 16, 0.8);
+  border: 2px solid var(--border-rose);
+  border-radius: var(--radius-md);
+  min-width: 280px;
+  text-align: center;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+/* Celebration state */
+.celebration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 650px;
+}
+
+.heart {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.poemTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-rose-light);
+}
+
+.poem {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 2;
+  color: var(--text-primary);
+  white-space: pre-line;
+}
+
+.signature {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent-gold);
+  margin-top: 1rem;
+}
+
+.errorMsg {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  .password {
+    font-size: 1.6rem;
+  }
+
+  .poemTitle {
+    font-size: 1.5rem;
+  }
+
+  .poem {
+    font-size: 1rem;
+  }
+}

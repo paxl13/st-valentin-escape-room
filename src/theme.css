@@ -1,0 +1,49 @@
+:root {
+  /* Couleurs principales */
+  --bg-deep: #1a0a10;
+  --bg-card: rgba(60, 20, 40, 0.6);
+  --bg-card-hover: rgba(80, 30, 55, 0.7);
+
+  /* Roses */
+  --accent-rose: #e84393;
+  --accent-rose-light: #fd79a8;
+  --accent-rose-dim: #b83279;
+
+  /* Or */
+  --accent-gold: #ffd700;
+  --accent-gold-dim: #c8a600;
+
+  /* Texte */
+  --text-primary: #f5e6ef;
+  --text-secondary: #c9a0b5;
+  --text-muted: #8a6070;
+
+  /* Bordures */
+  --border-rose: rgba(232, 67, 147, 0.3);
+  --border-rose-bright: rgba(232, 67, 147, 0.6);
+
+  /* Ombres */
+  --shadow-glow: 0 0 30px rgba(232, 67, 147, 0.2);
+  --shadow-glow-strong: 0 0 60px rgba(232, 67, 147, 0.4);
+  --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.3);
+
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Glass */
+  --glass-blur: 16px;
+  --glass-bg: rgba(60, 20, 40, 0.5);
+  --glass-border: 1px solid var(--border-rose);
+
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 600ms ease;
+}

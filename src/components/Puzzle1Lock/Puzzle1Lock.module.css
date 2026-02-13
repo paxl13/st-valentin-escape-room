@@ -1,0 +1,86 @@
+.digits {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.digitInput {
+  width: 3rem;
+  height: 3.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: rgba(26, 10, 16, 0.8);
+  border: 2px solid var(--border-rose);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  caret-color: var(--accent-rose-light);
+}
+
+.digitInput:focus {
+  border-color: var(--accent-rose-light);
+  box-shadow: 0 0 12px rgba(232, 67, 147, 0.3);
+}
+
+.digitInput::placeholder {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.submitBtn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-rose-dim), var(--accent-rose));
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.05em;
+}
+
+.submitBtn:hover:not(:disabled) {
+  box-shadow: var(--shadow-glow-strong);
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.shake {
+  animation: shakeAnim 0.4s ease;
+}
+
+@keyframes shakeAnim {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+@media (max-width: 480px) {
+  .digitInput {
+    width: 2.4rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .digits {
+    gap: 0.3rem;
+  }
+}
