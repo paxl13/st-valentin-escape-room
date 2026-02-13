@@ -3,11 +3,13 @@
   gap: 0.5rem;
   justify-content: center;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .digitInput {
-  width: 3rem;
-  height: 3.5rem;
+  width: 2.75rem;
+  height: 3.25rem;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 1.5rem;
@@ -75,12 +77,26 @@
 
 @media (max-width: 480px) {
   .digitInput {
-    width: 2.4rem;
-    height: 3rem;
-    font-size: 1.2rem;
+    width: 2rem;
+    height: 2.6rem;
+    font-size: 1.1rem;
+    border-width: 1.5px;
   }
 
   .digits {
-    gap: 0.3rem;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .digitInput {
+    width: 1.75rem;
+    height: 2.4rem;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .digits {
+    gap: 0.2rem;
   }
 }
