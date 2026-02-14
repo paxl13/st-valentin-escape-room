@@ -87,6 +87,16 @@
   box-shadow: var(--shadow-glow);
 }
 
+@media (max-width: 480px) {
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}
+
 .shake {
   animation: shakeAnim 0.4s ease;
 }

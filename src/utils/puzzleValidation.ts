@@ -14,5 +14,5 @@ export function validatePuzzle3(answer: string): boolean {
 
 export function validatePuzzle4(answer: string): boolean {
   const normalized = answer.trim().toUpperCase().replace(/\s+/g, ' ');
-  return normalized === "JE T'AIME";
+  return normalized === "AMOUR";
 }

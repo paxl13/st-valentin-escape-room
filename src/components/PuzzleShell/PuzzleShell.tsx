@@ -19,7 +19,7 @@ export default function PuzzleShell({ puzzleNumber, title, subtitle, error, chil
       exit={{ opacity: 0, y: -20, scale: 0.96 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className={styles.puzzleNumber}>Épreuve {puzzleNumber} / 4</div>
+      <div className={styles.puzzleNumber}>Épreuve {puzzleNumber} / 5</div>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.subtitle}>{subtitle}</p>
       <div className={styles.content}>{children}</div>

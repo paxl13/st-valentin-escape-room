@@ -36,6 +36,7 @@ const OPTIONS = [
 
 export default function Puzzle2Series({ onSolve }: Props) {
   const [error, setError] = useState('');
+  const [selectedId, setSelectedId] = useState('');
   const [wrongId, setWrongId] = useState('');
   const [visibleHints, setVisibleHints] = useState(0);
 
@@ -44,14 +45,20 @@ export default function Puzzle2Series({ onSolve }: Props) {
   }, []);
 
   const handleSelect = (optionId: string) => {
-    if (validatePuzzle2(optionId)) {
+    setError('');
+    setSelectedId(optionId);
+  };
+
+  const handleSubmit = useCallback(() => {
+    if (!selectedId) return;
+    if (validatePuzzle2(selectedId)) {
       onSolve();
     } else {
-      setWrongId(optionId);
+      setWrongId(selectedId);
       setError('Ce n\'est pas la bonne réponse...');
       setTimeout(() => setWrongId(''), 400);
     }
-  };
+  }, [selectedId, onSolve]);
 
   return (
     <PuzzleShell
@@ -91,7 +98,7 @@ export default function Puzzle2Series({ onSolve }: Props) {
         {OPTIONS.map((opt) => (
           <button
             key={opt.id}
-            className={`${styles.optionCard} ${wrongId === opt.id ? styles.wrong : ''}`}
+            className={`${styles.optionCard} ${selectedId === opt.id ? styles.selected : ''} ${wrongId === opt.id ? styles.wrong : ''}`}
             onClick={() => handleSelect(opt.id)}
           >
             <span className={styles.optionLabel}>{opt.id}.</span>
@@ -99,6 +106,14 @@ export default function Puzzle2Series({ onSolve }: Props) {
           </button>
         ))}
       </div>
+
+      <button
+        className={styles.submitBtn}
+        onClick={handleSubmit}
+        disabled={!selectedId}
+      >
+        Valider
+      </button>
     </PuzzleShell>
   );
 }

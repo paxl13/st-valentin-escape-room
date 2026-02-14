@@ -1,0 +1,193 @@
+.hints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.hintItem {
+  padding: 0.75rem 1rem;
+  background: rgba(26, 10, 16, 0.5);
+  border-left: 3px solid var(--accent-rose-dim);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.hintNumber {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-rose);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.moreBtn {
+  display: block;
+  margin: 0 auto 1.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--accent-rose-light);
+  background: rgba(232, 67, 147, 0.1);
+  border: 1px solid var(--border-rose);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.moreBtn:hover {
+  background: rgba(232, 67, 147, 0.2);
+  border-color: var(--border-rose-bright);
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-rose);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.leds {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.led {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(26, 10, 16, 0.8);
+  border: 2px solid var(--border-rose);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.led:hover {
+  border-color: var(--accent-rose-light);
+}
+
+.ledGlow {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: rgba(80, 30, 50, 0.4);
+  transition: all var(--transition-normal);
+}
+
+.ledOn {
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 12px rgba(232, 67, 147, 0.4), 0 0 24px rgba(232, 67, 147, 0.2);
+}
+
+.ledOn .ledGlow {
+  background: radial-gradient(circle, var(--accent-rose-light), var(--accent-rose));
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.bitLabels {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.bitLabel {
+  width: 44px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.display {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 0.75rem;
+  background: rgba(26, 10, 16, 0.6);
+  border: 1px solid var(--border-rose);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.15em;
+}
+
+.submitBtn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-rose-dim), var(--accent-rose));
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.submitBtn:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.shake {
+  animation: shakeAnim 0.4s ease;
+}
+
+@keyframes shakeAnim {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+@media (max-width: 480px) {
+  .led {
+    width: 38px;
+    height: 38px;
+  }
+
+  .bitLabel {
+    width: 38px;
+  }
+
+  .leds,
+  .bitLabels {
+    gap: 0.5rem;
+  }
+
+  .display {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .led {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bitLabel {
+    width: 32px;
+    font-size: 0.55rem;
+  }
+
+  .leds,
+  .bitLabels {
+    gap: 0.35rem;
+  }
+}

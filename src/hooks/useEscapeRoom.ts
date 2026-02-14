@@ -21,7 +21,7 @@ function escapeRoomReducer(state: EscapeRoomState, action: EscapeRoomAction): Es
         showingWordReveal: true,
       };
     case 'DISMISS_WORD_REVEAL': {
-      const nextPuzzle = state.solvedPuzzles.length >= 4 ? 5 : state.currentPuzzle + 1;
+      const nextPuzzle = state.solvedPuzzles.length >= 5 ? 6 : state.currentPuzzle + 1;
       return {
         ...state,
         showingWordReveal: false,

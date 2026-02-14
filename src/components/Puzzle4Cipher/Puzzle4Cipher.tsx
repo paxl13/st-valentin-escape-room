@@ -7,7 +7,7 @@ interface Props {
   onSolve: () => void;
 }
 
-const CIPHER_TEXT = "XS H'OWAS";
+const CIPHER_TEXT = "OACIF";
 
 export default function Puzzle4Cipher({ onSolve }: Props) {
   const [answer, setAnswer] = useState('');

@@ -8,6 +8,7 @@ import Puzzle1Lock from './components/Puzzle1Lock/Puzzle1Lock';
 import Puzzle2Series from './components/Puzzle2Series/Puzzle2Series';
 import Puzzle3Deduction from './components/Puzzle3Deduction/Puzzle3Deduction';
 import Puzzle4Cipher from './components/Puzzle4Cipher/Puzzle4Cipher';
+import Puzzle5Binary from './components/Puzzle5Binary/Puzzle5Binary';
 import FinalReveal from './components/FinalReveal/FinalReveal';
 import styles from './App.module.css';
 
@@ -53,7 +54,7 @@ export default function App() {
             <div className={styles.introIcon}>🔐</div>
             <h1 className={styles.introTitle}>L'Escape Room de la St-Valentin</h1>
             <p className={styles.introDesc}>
-              4 épreuves t'attendent. Chacune dévoile un mot du message secret.
+              5 épreuves t'attendent. Chacune dévoile un mot du message secret.
               Résous-les toutes pour découvrir la surprise finale.
             </p>
             <motion.button
@@ -67,7 +68,7 @@ export default function App() {
           </motion.div>
         )}
 
-        {currentPuzzle >= 1 && currentPuzzle <= 4 && (
+        {currentPuzzle >= 1 && currentPuzzle <= 5 && (
           <motion.div
             key={`puzzle-wrapper-${currentPuzzle}`}
             style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}
@@ -90,12 +91,15 @@ export default function App() {
                 {currentPuzzle === 4 && (
                   <Puzzle4Cipher key="p4" onSolve={() => handleSolve(4)} />
                 )}
+                {currentPuzzle === 5 && (
+                  <Puzzle5Binary key="p5" onSolve={() => handleSolve(5)} />
+                )}
               </AnimatePresence>
             </div>
           </motion.div>
         )}
 
-        {currentPuzzle === 5 && (
+        {currentPuzzle === 6 && (
           <motion.div
             key="final"
             initial={{ opacity: 0 }}

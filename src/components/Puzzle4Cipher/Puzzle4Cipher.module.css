@@ -98,4 +98,12 @@
   .cipherText {
     font-size: 1.4rem;
   }
+
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
 }

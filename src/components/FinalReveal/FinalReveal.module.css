@@ -188,12 +188,22 @@
 }
 
 .poem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.verse {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.15rem;
-  line-height: 2;
+  line-height: 1.8;
   color: var(--text-primary);
-  white-space: pre-line;
+}
+
+.verseBreak {
+  height: 1rem;
 }
 
 .signature {
@@ -209,15 +219,34 @@
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.75rem;
+    min-height: auto;
+    gap: 1rem;
+  }
+
+  .celebration {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .heart {
+    font-size: 3.5rem;
+  }
+
   .password {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .poemTitle {
     font-size: 1.5rem;
   }
 
-  .poem {
-    font-size: 1rem;
+  .verse {
+    font-size: 1.15rem;
+  }
+
+  .signature {
+    font-size: 0.95rem;
   }
 }

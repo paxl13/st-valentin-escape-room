@@ -9,7 +9,7 @@ interface Props {
 export default function ProgressBar({ currentPuzzle, solvedCount }: Props) {
   return (
     <div className={styles.container}>
-      {[1, 2, 3, 4].map((step, i) => {
+      {[1, 2, 3, 4, 5].map((step, i) => {
         const solved = solvedCount > i;
         const active = currentPuzzle === step;
         return (
@@ -29,7 +29,7 @@ export default function ProgressBar({ currentPuzzle, solvedCount }: Props) {
         );
       })}
       <div
-        className={`${styles.dot} ${solvedCount >= 4 ? styles.dotSolved : ''}`}
+        className={`${styles.dot} ${solvedCount >= 5 ? styles.dotSolved : ''}`}
       />
     </div>
   );

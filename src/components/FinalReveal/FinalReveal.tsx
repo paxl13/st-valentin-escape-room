@@ -9,12 +9,17 @@ interface Props {
   revealedWords: string[];
 }
 
-const POEM = `Roses are red,
-Violets are blue,
-This puzzle was made,
-Just for you.
-
-(Placeholder — ton vrai poème ira ici)`;
+const VERSES = [
+  "Ma belle Jessica,",
+  "Toi qui fait tant de Ahhhh,",
+  "Je t'aime à l'infini",
+  "Comme les décimales de Pi!",
+  "",
+  "Telle la méduse immortelle",
+  "Mon amour sera éternel",
+  "Mes papilles saurais te retrouver",
+  "À travers une foule les yeux fermés",
+];
 
 export default function FinalReveal({ revealedWords }: Props) {
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
@@ -138,15 +143,6 @@ export default function FinalReveal({ revealedWords }: Props) {
               💝
             </motion.div>
 
-            <motion.div
-              className={styles.password}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {FINAL_PASSWORD}
-            </motion.div>
-
             <motion.h2
               className={styles.poemTitle}
               initial={{ opacity: 0, y: 20 }}
@@ -156,20 +152,25 @@ export default function FinalReveal({ revealedWords }: Props) {
               Pour toi...
             </motion.h2>
 
-            <motion.p
-              className={styles.poem}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              {POEM}
-            </motion.p>
+            <div className={styles.poem}>
+              {VERSES.map((verse, i) => (
+                <motion.p
+                  key={i}
+                  className={verse === '' ? styles.verseBreak : styles.verse}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 + i * 0.6 }}
+                >
+                  {verse || '\u00A0'}
+                </motion.p>
+              ))}
+            </div>
 
             <motion.span
               className={styles.signature}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
+              transition={{ delay: 1 + VERSES.length * 0.6 + 0.5 }}
             >
               — Avec tout mon amour 💕
             </motion.span>
